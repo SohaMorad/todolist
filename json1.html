@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lan="en">
+
+<head>
+<title>objects</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style>
+
+
+
+
+body{
+background-color:#49f3e5;
+}
+#h1{
+font-family: Montserrat,sans-serif;
+font-size:45px;
+text-align:center;
+color:white;
+
+
+}
+.img1{
+border: 10px solid red;
+border-radius:25px;
+
+
+}
+</style>
+<script>
+
+         function printName(){
+var users=[];
+axios.get("http://jsonplaceholder.typicode.com/users").then(function(response){
+ 
+ users = response.data;
+ 
+ let showData="";
+ 
+for(var i=0; i< users.length ; i++)
+
+{
+showData = sohwData + "<br>"+ users[i].name +"<br>";
+
+}
+
+document.getElementById("names").innerHTML = showData;
+
+});
+}
+
+
+
+</script>
+</head>
+<body>
+
+<div class="row">
+<h1 id="h1"> Users Information </h1>
+</div>
+
+<div class="row" id="firstCard">
+
+<div class="col-md-4">
+
+<div class="col-md-6">
+<img src="images/user.jpg" height="250" width="250" alt="userimg" class="img1">
+
+
+</div>
+
+<div class="col-md-6">
+
+<button onclick="printNames()">Users Names</button>
+</div>
+
+
+
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<html>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+var users=[];
+axios.get("https://jsonplaceholder.typicode.com/users")
+.then(function(response){
+	
+	users = response.data;
+	let showData="";
+	
+	for(var i=0; i < users.length ; i++){
+		//document.write(users[i].name+" "+ users[i].email + "<br>");
+	
+		showData = showData + "<div id='col-md-4'>" +users[i].name+ "</div> <div id='col-md-4'>"+users[i].username +"</div> <div class='col-md-4'"+users[i].email +"</div>";
+		
+	
+	
+	}
+	
+	document.getElementById("data").innerHTML= showData;
+	
+});
+</script>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align:center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #2885f9;
+    color: white;
+}
+
+#h1{
+font-family:"Lucida Console", Monaco, monospace;
+font-size:50px;
+color:white;
+padding-top:10px;
+}
+body{
+background-color:#F7931E;
+}
+#nav1{
+float:right;
+font-family:"Lucida Console", Monaco, monospace;
+}
+</style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav" id="nav1">
+      <li class="active"><a href="#">Users Info</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+ <img src="images/pic3.jpg"  height="400" width="100%" alt="img1">
+</div>
+    <div class="container">
+	
+	
+	<div class="row">
+	
+	<div class="col-md-3">
+	<img src="images/user.jpg" height="150" width="200" alt="img2" class="img-circle">
+	</div>
+	
+	<div class="col-md-9">
+	<h1 id="h1">Users Information</h1>
+	</div>
+	
+	</div>
+	
+	
+	
+	    <div class="row" id="data">
+          
+		  <div id="col-md-4">
+		  <h2> Name</h2>
+		  </div>
+		 
+		 <div id="col-md-4">
+		  <h2> User Name</h2>
+		  </div>
+		 
+		  <div id="col-md-4">
+		  <h2> Email Adress</h2>
+		 
+		 </div>
+         </div>
+
+  
+  </div>
+  
+  <footer class="container-fluid bg-4 text-center">
+  <p><b>&copy 2018 All Rights Reservied business.com</b></p> 
+</footer>
+</body>
+
+
+</html>

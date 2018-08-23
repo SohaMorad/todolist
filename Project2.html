@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    
+var users=[];
+axios.get("https://jsonplaceholder.typicode.com/users")
+.then(function(response){
+	
+	users = response.data;
+	
+	let showData="";
+	
+	for(var i=0; i < users.length ; i++){
+		//document.write(users[i].name+" "+ users[i].email + "<br>");
+	
+		showData = showData + "<div class='col-md-4' id='cols'><div class='card' style='width: 18rem;' id='cards'><img src='images/pic6.jpg' height='350' width='300' alt='img1' class='img-circle' id='img1'></div><br>"+"Name: " +users[i].name+"<br>"+"User Name: " +users[i].username + "<br>"+"Email Adress: " +users[i].email +"</div>"
+		
+	
+	}
+	
+	document.getElementById("data").innerHTML= showData;
+	
+});
+</script>
+<style>
+#col1{
+margin-left:15px;
+}
+#data{
+color:#8f8d8d;
+font-weight:bold;
+font-family: "Times New Roman", Times, serif;
+}
+#nav1{
+float:right;
+}
+#cards{
+background-color:#4eb9fd;
+
+
+}
+</style>
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav" id="nav1">
+      <li class="active"><a href="#">Users Informations</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+   
+<div class="row">
+<img src="images/pic3.jpg" height="400" width="100%" alt="img1">
+</div>
+            
+             <h1 class="text-center"> Users Informations </h1>
+			 <br>
+			 
+    <div class="row text-center" id="data">
+		       <div class="col-md-4">
+              <div class="card" style="width: 18rem;" id="cards">
+		           
+                </div>
+          </div>
+		  </div>
+   </div>
+</body>
+</html>

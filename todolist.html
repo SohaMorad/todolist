@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+  <script>
+  
+             var tasks=[];
+			 
+            function printtasks(){
+			
+			let newtask= document.getElementById("newtask").value;
+			
+            tasks.push(newtask);
+		  
+		   let showdata="";
+		   
+		   for(var i=0; i < tasks.length ; i++){
+			
+			showdata = showdata + `<li onclick="remove(${i})">${tasks[i]}</li>`;
+        }
+		
+         
+		 document.getElementById("list").innerHTML = showdata;
+		 
+    }    
+
+      	function remove(index){
+		
+        		tasks.splice(index,1);
+				
+				let showdata="";
+		   
+		   for(var i=0; i < tasks.length ; i++){
+			
+			showdata = showdata + `<li onclick="remove(${i})">${tasks[i]}</li>`;
+        }
+		
+         
+		 document.getElementById("list").innerHTML = showdata;
+		
+		
+		
+		}
+  </script>
+</head>
+
+<body>
+  
+  
+  <br>
+    what to do : <input type="text" name="todo" id="newtask">
+	<button onclick="printtasks()">Add</button>
+    
+   <h3>To Do List</h2>
+
+   
+  <div class="row">
+   <ul id="list">
+   
+   
+   </ul>
+   </div>
+  
+  
+  
+  
+  
+  </body>
+</html>
